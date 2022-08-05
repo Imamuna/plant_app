@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/home/components/tile%20with%20more%20button.dart';
 import 'header with search.dart';
 
 class Body extends StatelessWidget {
@@ -12,22 +13,9 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           HeaderWithSearch(size: size),
-          Container(
-            height: 24,
-            child: Stack(
-              children: [
-                Text(
-                  'Reccomended',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Positioned(
-                  height: 7,
-                  child: Container(
-                    color: kPrimaryColor.withOpacity(0.2),
-                  ),
-                )
-              ],
-            ),
+          TileWithMoreButton(
+            press: () {},
+            title: 'Recommended',
           )
         ],
       ),
