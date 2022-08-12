@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/details/components/title_and_price_card.dart';
+
+import 'icon_card.dart';
+import 'images_and_icons.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -8,72 +12,17 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.8,
-          child: Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 3),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: IconButton(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                          icon: SvgPicture.asset('icons/back_arrow.svg'),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        height: 62,
-                        width: 62,
-                        decoration: BoxDecoration(
-                          color: kBackgroundColor,
-                          borderRadius: BorderRadius.circular(6),
-                          boxShadow: [
-                            BoxShadow(
-                              offset: Offset(0, 15),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                height: size.height * 0.8,
-                width: size.width * 0.75,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(63),
-                  ),
-                  image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    alignment: Alignment.centerLeft,
-                    image: AssetImage('images/img.png'),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 10),
-                      blurRadius: 60,
-                      color: kPrimaryColor.withOpacity(0.29),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ImagesandIconsCard(size: size),
+          const TitleandPrice(
+            price: 440,
+            country: 'Russia',
+            title: 'Angelica',
+          )
+        ],
+      ),
     );
   }
 }
